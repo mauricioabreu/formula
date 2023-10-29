@@ -33,6 +33,11 @@ def test_evaluate_complex_expression():
     assert parser.evaluate("(1 + 2) * 3 - 4 / 2") == 7.0
 
 
+def test_evaluate_malformed_expression():
+    with pytest.raises(Exception):
+        parser.evaluate("1 +")
+
+
 def test_cannot_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         parser.evaluate("1 / 0")
