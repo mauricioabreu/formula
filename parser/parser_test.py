@@ -36,3 +36,8 @@ def test_evaluate_complex_expression():
 def test_cannot_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         parser.evaluate("1 / 0")
+
+
+def test_parens_precedence():
+    assert parser.evaluate("1 + 2 * 3") == 7
+    assert parser.evaluate("(1 + 2) * 3") == 9
